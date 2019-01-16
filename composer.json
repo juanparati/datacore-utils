@@ -1,0 +1,24 @@
+{
+    "name": "juanparati/datacore-utils",
+    "description": "A collection of mutators, casters and validators for your data",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juan Lago",
+            "email": "juanparati@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-mbstring": "*",
+        "ronanguilloux/isocodes": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Juanparati\\DatacoreUtils\\": "src/"
+        }
+    }
+}
