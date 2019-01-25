@@ -2,15 +2,19 @@
 
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
+
+use IsoCodes\Sscc;
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class MinLengthValidator.
+ * Class SSCCValidator.
+ *
+ * Shipping Container Code validator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class MinLengthValidator implements ValidatorContract
+class SsccValidator implements ValidatorContract
 {
 
     /**
@@ -22,6 +26,6 @@ class MinLengthValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return mb_strlen($data) >= $rules;
+        return Sscc::validate($data);
     }
 }

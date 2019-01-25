@@ -2,20 +2,20 @@
 
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
-use IsoCodes\Iban;
+use IsoCodes\CreditCard;
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
-
 /**
- * Class IBANValidator.
+ * Class CreditCardValidator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class IBANValidator implements ValidatorContract
+class CreditcardValidator implements ValidatorContract
 {
 
+
     /**
-     * Validate data.
+     * Validate data
      *
      * @param $data
      * @param mixed $rules
@@ -23,6 +23,6 @@ class IBANValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return Iban::validate($data);
+        return CreditCard::validate($data);
     }
 }

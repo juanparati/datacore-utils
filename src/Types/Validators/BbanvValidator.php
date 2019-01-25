@@ -1,19 +1,20 @@
 <?php
+
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
+use IsoCodes\Bban;
 
-use IsoCodes\Sedol;
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class SedolValidator.
+ * Class BBANValidator.
  *
- * Stock Exchange Code validator.
+ * Basic Bank Account Number validator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class SEDOLValidator implements ValidatorContract
+class BbanvValidator implements ValidatorContract
 {
 
     /**
@@ -25,6 +26,6 @@ class SEDOLValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return Sedol::validate($data);
+        return Bban::validate($data);
     }
 }

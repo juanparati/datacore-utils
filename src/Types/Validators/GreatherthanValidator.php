@@ -2,20 +2,20 @@
 
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
-use IsoCodes\CreditCard;
+
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
+
 /**
- * Class CreditCardValidator.
+ * Class GreatherThanValidator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class CreditCardValidator implements ValidatorContract
+class GreatherthanValidator implements ValidatorContract
 {
 
-
     /**
-     * Validate data
+     * Validate data.
      *
      * @param $data
      * @param mixed $rules
@@ -23,6 +23,6 @@ class CreditCardValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return CreditCard::validate($data);
+        return $data > $rules;
     }
 }

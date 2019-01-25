@@ -1,20 +1,19 @@
 <?php
-
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
 
-use IsoCodes\Sscc;
+use IsoCodes\Sedol;
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class SSCCValidator.
+ * Class SedolValidator.
  *
- * Shipping Container Code validator.
+ * Stock Exchange Code validator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class SSCCValidator implements ValidatorContract
+class SedolValidator implements ValidatorContract
 {
 
     /**
@@ -26,6 +25,6 @@ class SSCCValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return Sscc::validate($data);
+        return Sedol::validate($data);
     }
 }

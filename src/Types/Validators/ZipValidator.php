@@ -2,17 +2,20 @@
 
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
+use IsoCodes\Bban;
 
-use IsoCodes\Isbn;
+use IsoCodes\ZipCode;
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class ISBNValidator.
+ * Class ZIPValidator.
+ *
+ * Zip code validator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class ISBNValidator implements ValidatorContract
+class ZipValidator implements ValidatorContract
 {
 
     /**
@@ -24,6 +27,6 @@ class ISBNValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return Isbn::validate($data);
+        return ZipCode::validate($data, $rules);
     }
 }

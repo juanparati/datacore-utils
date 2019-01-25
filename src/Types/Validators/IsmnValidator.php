@@ -3,15 +3,18 @@
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
 
+use IsoCodes\Ismn;
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class LowerThanValidator
- * 
+ * Class ISMNValidator.
+ *
+ * International Standard Music Number validator.
+ *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class LowerThanValidator implements ValidatorContract
+class IsmnValidator implements ValidatorContract
 {
 
     /**
@@ -23,6 +26,6 @@ class LowerThanValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return $data < $rules;
+        return Ismn::validate($data);
     }
 }

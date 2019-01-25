@@ -13,7 +13,7 @@ use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class GTINValidator  implements ValidatorContract
+class GtinValidator  implements ValidatorContract
 {
 
     /**

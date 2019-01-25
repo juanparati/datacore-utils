@@ -2,20 +2,19 @@
 
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
-use IsoCodes\Bban;
 
-use IsoCodes\Isin;
+use IsoCodes\Iswc;
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class ISINValidator.
+ * Class ISWCValidator.
  *
- * International Securities Identification Number validator.
+ * International Standard Musical Work Code validator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class ISINValidator implements ValidatorContract
+class IswcValidator implements ValidatorContract
 {
 
     /**
@@ -27,6 +26,6 @@ class ISINValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return Isin::validate($data);
+        return Iswc::validate($data);
     }
 }

@@ -3,15 +3,16 @@
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
 
+use IsoCodes\Isbn;
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class GreatherThanValidator.
+ * Class ISBNValidator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class GreatherThanValidator implements ValidatorContract
+class IsbnValidator implements ValidatorContract
 {
 
     /**
@@ -23,6 +24,6 @@ class GreatherThanValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return $data > $rules;
+        return Isbn::validate($data);
     }
 }
