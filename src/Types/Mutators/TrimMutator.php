@@ -3,6 +3,7 @@
 namespace Juanparati\DatacoreUtils\Types\Mutators;
 
 use Juanparati\DatacoreUtils\Contracts\MutatorContract;
+use Juanparati\DatacoreUtils\Helpers\DynamicParams;
 
 
 /**
@@ -19,8 +20,10 @@ class TrimMutator implements MutatorContract
      * @param $data
      * @return mixed
      */
-    public function __invoke($data, $settings = null)
+    public function __invoke($data, ...$params)
     {
-        return $settings ? trim($data, $settings) : trim($data);
+        $params = DynamicParams::flatVariadicParams($params);
+
+        return $params[0] ? trim($data, $params[0]) : trim($data);
     }
 }

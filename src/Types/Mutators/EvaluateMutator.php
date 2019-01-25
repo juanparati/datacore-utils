@@ -26,10 +26,11 @@ class EvaluateMutator implements MutatorContract
      * Mutate data.
      *
      * @param $data
+     * @param array $params
      * @return mixed
      * @throws MutatorException
      */
-    public function __invoke($data, $settings = null)
+    public function __invoke($data, ...$params)
     {
         if (!preg_match(static::MATH_EXPRESSION_REGEX, $data))
             throw new MutatorException('Unable to compute the following expression: ' . $data, 0);

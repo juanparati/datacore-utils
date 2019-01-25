@@ -29,9 +29,10 @@ class Mutator
      *
      * @param string|MutatorContract $type
      * @param $value
+     * @param array $params
      * @return mixed
      */
-    public static function mutate($type, $value, $settings = null)
+    public static function mutate($type, $value, ...$params)
     {
         if ($type instanceof MutatorContract)
             $mutator = $type;
@@ -41,7 +42,7 @@ class Mutator
             $mutator = new $mutator;
         }
 
-        return $mutator($value, $settings);
+        return $mutator($value, $params);
     }
 
 }

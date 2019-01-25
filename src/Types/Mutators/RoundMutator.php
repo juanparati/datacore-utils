@@ -4,6 +4,7 @@ namespace Juanparati\DatacoreUtils\Types\Mutators;
 
 use Juanparati\DatacoreUtils\Contracts\MutatorContract;
 use Juanparati\DatacoreUtils\Exceptions\MutatorException;
+use Juanparati\DatacoreUtils\Helpers\DynamicParams;
 
 
 /**
@@ -18,16 +19,19 @@ class RoundMutator extends FloatMutator implements MutatorContract
      * Mutate data.
      *
      * @param $data
+     * @param array $params
      * @return mixed
      * @throws MutatorException
      */
-    public function __invoke($data, $settings = null)
+    public function __invoke($data, ...$params)
     {
+        $params = DynamicParams::flatVariadicParams($params);
+
         $mode = PHP_ROUND_HALF_UP;
 
-        if (!empty($settings['mode']))
+        if (!empty($params[1]))
         {
-            switch ($settings['mode'])
+            switch ($params[1])
             {
                 case 'half_up':
                     $mode = PHP_ROUND_HALF_UP;
@@ -47,6 +51,6 @@ class RoundMutator extends FloatMutator implements MutatorContract
             }
         }
 
-        return round(parent::__invoke($data), $settings['precision'], $mode);
+        return round(parent::__invoke($data), $params[0] ?? 0, $mode);
     }
 }

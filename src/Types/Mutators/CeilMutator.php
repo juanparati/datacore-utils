@@ -18,10 +18,11 @@ class CeilMutator extends FloatMutator implements MutatorContract
      * Mutate data.
      *
      * @param $data
+     * @param array $params
      * @return mixed
      * @throws MutatorException
      */
-    public function __invoke($data, $settings = null)
+    public function __invoke($data, ...$params)
     {
         return ceil(parent::__invoke($data));
     }

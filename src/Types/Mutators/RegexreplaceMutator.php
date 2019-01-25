@@ -3,6 +3,7 @@
 namespace Juanparati\DatacoreUtils\Types\Mutators;
 
 use Juanparati\DatacoreUtils\Contracts\MutatorContract;
+use Juanparati\DatacoreUtils\Helpers\DynamicParams;
 
 
 /**
@@ -17,10 +18,13 @@ class RegexreplaceMutator implements MutatorContract
      * Mutate data.
      *
      * @param $data
+     * @param array $params
      * @return mixed
      */
-    public function __invoke($data, $settings = null)
+    public function __invoke($data, ...$params)
     {
-        return preg_replace($settings['pattern'], $settings['replacement'], $data);
+        [$pattern, $replacement] = $params = DynamicParams::flatVariadicParams($params);
+
+        return preg_replace($pattern, $replacement, $data);
     }
 }

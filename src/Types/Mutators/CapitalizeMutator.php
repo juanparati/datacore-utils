@@ -17,9 +17,10 @@ class CapitalizeMutator implements MutatorContract
      * Mutate data.
      *
      * @param $data
+     * @param array $params
      * @return mixed
      */
-    public function __invoke($data, $settings = null)
+    public function __invoke($data, ...$params)
     {
         return mb_convert_case($data, MB_CASE_TITLE, 'UTF-8');
     }

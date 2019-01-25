@@ -20,10 +20,11 @@ class FloatMutator implements MutatorContract
      * Mutate data.
      *
      * @param $data
+     * @param array $params
      * @return mixed
      * @throws MutatorException
      */
-    public function __invoke($data, $settings = null)
+    public function __invoke($data, ...$params)
     {
         if (!preg_match(static::ONLY_NUMBERS_REGEX, $data, $matches))
             throw new MutatorException('Unable to find numeric expression', 3);

@@ -17,9 +17,10 @@ class LowercaseMutator implements MutatorContract
      * Mutate data.
      *
      * @param $data
+     * @param array $params
      * @return mixed
      */
-    public function __invoke($data, $settings = null)
+    public function __invoke($data, ...$params)
     {
         return mb_strtolower($data);
     }

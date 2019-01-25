@@ -31,17 +31,17 @@ class Validator
      * @param $value
      * @return mixed
      */
-    public static function mutate($type, $value, $settings = null)
+    public static function validate($type, $value, $settings = null)
     {
         if ($type instanceof ValidatorContract)
-            $mutator = $type;
+            $validator = $type;
         else
         {
-            $mutator = static::$cache[$type] ?? __NAMESPACE__ . '\\Validators\\' . ucfirst($type) . 'Validator';
-            $mutator = new $mutator;
+            $validator = static::$cache[$type] ?? __NAMESPACE__ . '\\Validators\\' . ucfirst($type) . 'Validator';
+            $validator = new $validator;
         }
 
-        return $mutator($value, $settings);
+        return $validator($value, $settings);
     }
 
 }
