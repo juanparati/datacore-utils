@@ -2,15 +2,16 @@
 
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
+
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class MaxLengthValidator.
- *
+ * Class EqualToValidator.
+ * 
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class MaxlengthValidator implements ValidatorContract
+class EqualToValidator implements ValidatorContract
 {
 
     /**
@@ -22,6 +23,6 @@ class MaxlengthValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return mb_strlen($data) <= $rules;
+        return $data == $rules;
     }
 }

@@ -7,11 +7,11 @@ use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class LowerThanValidator
- * 
+ * Class GreatherThanValidator.
+ *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class LowerthanValidator implements ValidatorContract
+class GreaterThanValidator implements ValidatorContract
 {
 
     /**
@@ -23,6 +23,6 @@ class LowerthanValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return $data < $rules;
+        return $data > $rules;
     }
 }

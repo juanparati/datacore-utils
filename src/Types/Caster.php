@@ -4,6 +4,7 @@ namespace Juanparati\DatacoreUtils\Types;
 
 
 use Juanparati\DatacoreUtils\Contracts\CasterContract;
+use Juanparati\DatacoreUtils\Helpers\StringManipulation;
 
 /**
  * Class Caster.
@@ -36,6 +37,8 @@ class Caster
             $caster = $type;
         else
         {
+            $type = StringManipulation::snakeToCamel($type);
+
             $caster = static::$cache[$type] ?? __NAMESPACE__ . '\\Casters\\' . ucfirst($type) . 'Caster';
             $caster = new $caster;
         }

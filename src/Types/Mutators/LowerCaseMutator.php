@@ -6,11 +6,11 @@ use Juanparati\DatacoreUtils\Contracts\MutatorContract;
 
 
 /**
- * Class UppercaseMutator.
+ * Class LowercaseMutator.
  *
  * @package Juanparati\DatacoreUtils\Types\Mutators
  */
-class UppercaseMutator implements MutatorContract
+class LowerCaseMutator implements MutatorContract
 {
 
     /**
@@ -22,6 +22,6 @@ class UppercaseMutator implements MutatorContract
      */
     public function __invoke($data, ...$params)
     {
-        return mb_strtoupper($data);
+        return mb_strtolower($data);
     }
 }

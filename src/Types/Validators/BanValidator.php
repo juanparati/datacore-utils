@@ -2,15 +2,19 @@
 
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
+use IsoCodes\Bban;
+
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class MinLengthValidator.
+ * Class BBANValidator.
+ *
+ * Basic Bank Account Number validator.
  *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class MinlengthValidator implements ValidatorContract
+class BanValidator implements ValidatorContract
 {
 
     /**
@@ -22,6 +26,6 @@ class MinlengthValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return mb_strlen($data) >= $rules;
+        return Bban::validate($data);
     }
 }

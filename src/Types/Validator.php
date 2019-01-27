@@ -4,6 +4,7 @@ namespace Juanparati\DatacoreUtils\Types;
 
 
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
+use Juanparati\DatacoreUtils\Helpers\StringManipulation;
 
 
 /**
@@ -37,6 +38,8 @@ class Validator
             $validator = $type;
         else
         {
+            $type = StringManipulation::snakeToCamel($type);
+
             $validator = static::$cache[$type] ?? __NAMESPACE__ . '\\Validators\\' . ucfirst($type) . 'Validator';
             $validator = new $validator;
         }

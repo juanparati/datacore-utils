@@ -3,14 +3,15 @@
 namespace Juanparati\DatacoreUtils\Types\Mutators;
 
 use Juanparati\DatacoreUtils\Contracts\MutatorContract;
+use Juanparati\DatacoreUtils\Helpers\DynamicParams;
 
 
 /**
- * Class LowercaseMutator.
+ * Class RegexreplaceMutator.
  *
  * @package Juanparati\DatacoreUtils\Types\Mutators
  */
-class LowercaseMutator implements MutatorContract
+class RegexReplaceMutator implements MutatorContract
 {
 
     /**
@@ -22,6 +23,8 @@ class LowercaseMutator implements MutatorContract
      */
     public function __invoke($data, ...$params)
     {
-        return mb_strtolower($data);
+        [$pattern, $replacement] = $params = DynamicParams::flatVariadicParams($params);
+
+        return preg_replace($pattern, $replacement, $data);
     }
 }

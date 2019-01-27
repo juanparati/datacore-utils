@@ -18,7 +18,7 @@ class DynamicParams
             return null;
 
         if (is_array($variadic))
-            return array_values($variadic[0]);
+            return is_array($variadic[0]) ? array_values($variadic[0]) : $variadic[0];
 
         return $variadic;
     }

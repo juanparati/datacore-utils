@@ -4,6 +4,7 @@ namespace Juanparati\DatacoreUtils\Types;
 
 
 use Juanparati\DatacoreUtils\Contracts\MutatorContract;
+use Juanparati\DatacoreUtils\Helpers\StringManipulation;
 
 
 /**
@@ -38,11 +39,13 @@ class Mutator
             $mutator = $type;
         else
         {
+            $type = StringManipulation::snakeToCamel($type);
+
             $mutator = static::$cache[$type] ?? __NAMESPACE__ . '\\Mutators\\' . ucfirst($type) . 'Mutator';
             $mutator = new $mutator;
         }
 
-        return $mutator($value, $params);
+        return $mutator($value, isset($params[0]) && is_array($params[0]) ? $params[0] : $params);
     }
 
 }

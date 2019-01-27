@@ -2,16 +2,15 @@
 
 namespace Juanparati\DatacoreUtils\Types\Validators;
 
-
 use Juanparati\DatacoreUtils\Contracts\ValidatorContract;
 
 
 /**
- * Class EqualToValidator.
- * 
+ * Class MinLengthValidator.
+ *
  * @package Juanparati\DatacoreUtils\Types\Validators
  */
-class EqualtoValidator implements ValidatorContract
+class MinLengthValidator implements ValidatorContract
 {
 
     /**
@@ -23,6 +22,6 @@ class EqualtoValidator implements ValidatorContract
      */
     public function __invoke($data, $rules = null): bool
     {
-        return $data == $rules;
+        return mb_strlen($data) >= $rules;
     }
 }
