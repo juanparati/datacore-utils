@@ -2,6 +2,7 @@
 namespace Juanparati\DatacoreUtils\Tests\Casters;
 
 use Juanparati\DatacoreUtils\Tests\CasterTest;
+use Juanparati\DatacoreUtils\Types\Caster;
 use Juanparati\DatacoreUtils\Types\Casters\StringCaster;
 
 
@@ -43,5 +44,14 @@ final class StringCasterTest extends CasterTest
             'value'     => [],
         ],
     ];
+
+
+    /**
+     * Test caster singleton.
+     */
+    public function test_singleton()
+    {
+        $this->assertEquals('10', Caster::cast('string', 10));
+    }
 
 }

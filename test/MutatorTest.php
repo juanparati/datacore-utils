@@ -35,7 +35,7 @@ abstract class MutatorTest extends TestCase
      */
     public function test_mutator()
     {
-        // @var $caster \Juanparati\DatacoreUtils\Contracts\MutatorContract
+        // @var $mutator \Juanparati\DatacoreUtils\Contracts\MutatorContract
         $mutator = new $this->mutator;
 
         foreach ($this->test_values as $result)

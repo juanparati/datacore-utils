@@ -1,7 +1,8 @@
 <?php
-namespace Juanparati\DatacoreUtils\Tests\Casters;
+namespace Juanparati\DatacoreUtils\Tests\Mutators;
 
 use Juanparati\DatacoreUtils\Tests\MutatorTest;
+use Juanparati\DatacoreUtils\Types\Mutator;
 use Juanparati\DatacoreUtils\Types\Mutators\CapitalizeMutator;
 
 
@@ -44,5 +45,14 @@ final class CapitalizeMutatorTest extends MutatorTest
             'expected'  => 'First',
         ],
     ];
+
+
+    /**
+     * Test singleton
+     */
+    public function test_singleton()
+    {
+        $this->assertEquals('Capitalize Characters', Mutator::mutate('capitalize', 'capitalize characters'));
+    }
 
 }

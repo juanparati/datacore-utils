@@ -1,5 +1,5 @@
 <?php
-namespace Juanparati\DatacoreUtils\Tests\Casters;
+namespace Juanparati\DatacoreUtils\Tests\Mutators;
 
 use Juanparati\DatacoreUtils\Tests\MutatorTest;
 use Juanparati\DatacoreUtils\Types\Mutators\IntMutator;

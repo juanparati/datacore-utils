@@ -2,15 +2,15 @@
 namespace Juanparati\DatacoreUtils\Tests\Mutators;
 
 use Juanparati\DatacoreUtils\Tests\MutatorTest;
-use Juanparati\DatacoreUtils\Types\Mutators\CeilMutator;
+use Juanparati\DatacoreUtils\Types\Mutators\RoundMutator;
 
 
 /**
- * Class CeilMutatorTest.
+ * Class RoundMutatorTest.
  *
  * @package Juanparati\DatacoreUtils\Tests\Mutators
  */
-final class CeilMutatorTest extends MutatorTest
+final class RoundMutatorTest extends MutatorTest
 {
 
     /**
@@ -18,7 +18,7 @@ final class CeilMutatorTest extends MutatorTest
      *
      * @var string
      */
-    protected $mutator = CeilMutator::class;
+    protected $mutator = RoundMutator::class;
 
 
     public $test_values =
@@ -31,27 +31,20 @@ final class CeilMutatorTest extends MutatorTest
         [
             'type'      => 'float',
             'value'     => 3.141592,
-            'expected'  => 4
+            'expected'  => 3,
+            'params'    => [0]
         ],
         [
             'type'      => 'float',
-            'value'     => ' 13,1415.92',
-            'expected'  => 13,
+            'value'     => '10.99',
+            'expected'  => 11,
         ],
         [
             'type'      => 'float',
-            'value'     => 'a44.11',
-            'expected'  => 45,
+            'value'     => 1.0012,
+            'expected'  => 1.0,
+            'params'    => [1, 'half_down']
         ],
-        [
-            'type'      => 'float',
-            'value'     => ' 33.22a',
-            'expected'  => 34,
-        ],
-        [
-            'type'      => '_error',
-            'value'     => 'aaa',
-        ]
     ];
 
 }
